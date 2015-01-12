@@ -153,7 +153,49 @@ public class Picture extends SimplePicture
             {
                 topPixel = pixels[row][col];
                 bottomPixel = pixels[height - 1 - row][col];
+                bottomPixel.setColor(topPixel.getColor());
+            }
+        } 
+    }
+
+    /** 
+     * mirrors a picture around a mirror placed horizontally at the middle of the height of the picture from bottom to top
+     */
+    public void mirrorHorizontalBottomTop()
+    {
+        Pixel[][] pixels = this.getPixels2D();
+        Pixel topPixel = null;
+        Pixel bottomPixel = null;
+        int height = pixels.length;
+        for (int row = 0; row < height / 2; row++)
+        {
+            for (int col = 0; col < pixels[0].length; col++)
+            {
+                topPixel = pixels[row][col];
+                bottomPixel = pixels[height - 1 - row][col];
                 topPixel.setColor(bottomPixel.getColor());
+            }
+        } 
+    }
+
+    /** 
+     * mirrors a picture around a mirror placed diagonally from the top left to as far as a slope of -1 will take to the bottom right
+     */
+    public void mirrorDiagonal()
+    {
+        Pixel[][] pixels = this.getPixels2D();
+        Pixel prevPixel = null;
+        Pixel newPixel = null;
+        int height = pixels.length;
+        for (int row = 0; row < height; row++)
+        {
+            for (int col = 0; col < pixels[0].length; col++)
+            {
+                if(col < row){
+                    prevPixel = pixels[row][col];
+                    newPixel = pixels[col][row];
+                    newPixel.setColor(prevPixel.getColor());
+                }
             }
         } 
     }
@@ -178,8 +220,11 @@ public class Picture extends SimplePicture
                 rightPixel = pixels[row]                       
                 [mirrorPoint - col + mirrorPoint];
                 rightPixel.setColor(leftPixel.getColor());
+                count++;
             }
         }
+        
+        System.out.println(count);
     }
 
     /** copy from the passed fromPic to the
