@@ -26,6 +26,33 @@ public class PictureTester
     beach.explore();
   }
   
+  /** Method to test negate */
+  public static void testNegate()
+  {
+    Picture beach = new Picture("beach.jpg");
+    beach.explore();
+    beach.negate();
+    beach.explore();
+  }
+  
+  /** Method to test grayscale */
+  public static void testGrayscale()
+  {
+    Picture beach = new Picture("beach.jpg");
+    beach.explore();
+    beach.grayscale();
+    beach.explore();
+  }
+  
+  /** Method to test fixUnderwater */
+  public static void testFixUnderwater()
+  {
+    Picture water = new Picture("water.jpg");
+    water.explore();
+    water.fixUnderwater();
+    water.explore();
+  }
+  
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
@@ -114,6 +141,16 @@ public class PictureTester
     swan.explore();
   }
   
+  /** Method to test cropAndCopy */
+  public static void testCropAndCopy()
+  {
+    Picture seagull = new Picture("seagull.jpg");
+    Picture beach = new Picture("beach.jpg");
+    seagull.explore();
+    //seagull.cropAndCopy();
+    seagull.explore();
+  }
+  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -134,7 +171,6 @@ public class PictureTester
     //testMirrorHorizontalBottomTop();
     //testMirrorDiagonal();
     //testMirrorArms();
-    testMirrorGull();
     //testMirrorTemple();
     //testMirrorArms();
     //testMirrorGull();
@@ -149,5 +185,6 @@ public class PictureTester
     //testSetRedToHalfValueInTopHalf();
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);
+    //testCropAndCopy();
   }
 }

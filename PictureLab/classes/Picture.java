@@ -97,7 +97,7 @@ public class Picture extends SimplePicture
             }
         }
     }
-    
+
     /** Method to set red and green to 0 */
     public void keepOnlyBlue()
     {
@@ -108,6 +108,48 @@ public class Picture extends SimplePicture
             {
                 pixelObj.setRed(0);
                 pixelObj.setGreen(0);
+            }
+        }
+    }
+
+    /** Method to set red and green to 0 */
+    public void negate()
+    {
+        Pixel[][] pixels = this.getPixels2D();
+        for (Pixel[] rowArray : pixels)
+        {
+            for (Pixel pixelObj : rowArray)
+            {
+                pixelObj.setRed(255-pixelObj.getRed());
+                pixelObj.setGreen(255-pixelObj.getGreen());
+                pixelObj.setBlue(255-pixelObj.getBlue());
+            }
+        }
+    }
+
+    public void grayscale()
+    {
+        Pixel[][] pixels = this.getPixels2D();
+        for (Pixel[] rowArray : pixels)
+        {
+            for (Pixel pixelObj : rowArray)
+            {
+                int color = (pixelObj.getRed() + pixelObj.getGreen() + pixelObj.getBlue()) / 3;
+                pixelObj.setRed(color);
+                pixelObj.setGreen(color);
+                pixelObj.setBlue(color);
+            }
+        }
+    }
+
+    public void fixUnderwater()
+    {
+        Pixel[][] pixels = this.getPixels2D();
+        for (Pixel[] rowArray : pixels)
+        {
+            for (Pixel pixelObj : rowArray)
+            {
+                pixelObj.setRed(pixelObj.getRed()*4);
             }
         }
     }
@@ -236,10 +278,10 @@ public class Picture extends SimplePicture
                 count++;
             }
         }
-        
+
         System.out.println(count);
     }
-    
+
     /** Mirrors the arms of a snowman */
     public void mirrorArms()
     {
@@ -259,9 +301,9 @@ public class Picture extends SimplePicture
                 bottomPixel.setColor(topPixel.getColor());
             }
         }
-        
+
         mirrorPoint = 193;
-        
+
         for (int row = 174; row < mirrorPoint; row++)
         {
             // loop from 160 to just before the mirror point
@@ -272,9 +314,9 @@ public class Picture extends SimplePicture
                 bottomPixel.setColor(topPixel.getColor());
             }
         }
-        
+
     }
-    
+
     /** Mirrors a seagull and plants it to the right */
     public void mirrorGull()
     {
@@ -368,6 +410,12 @@ public class Picture extends SimplePicture
                     leftPixel.setColor(Color.WHITE);
             }
         }
+    }
+
+    public void cropAndCopy( Picture sourcePicture, int startSourceRow, int endSourceRow, int startSourceCol, int endSourceCol,
+        int startDestRow, int startDestCol)
+    {
+        
     }
 
     /* Main method for testing - each class in Java can have a main 
