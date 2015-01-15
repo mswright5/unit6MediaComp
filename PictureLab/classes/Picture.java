@@ -195,7 +195,8 @@ public class Picture extends SimplePicture
     }
 
     /** 
-     * mirrors a picture around a mirror placed horizontally at the middle of the height of the picture 
+     * mirrors a picture around a mirror placed horizontally at the middle of the height 
+     * of the picture 
      */
     public void mirrorHorizontal()
     {
@@ -215,7 +216,8 @@ public class Picture extends SimplePicture
     }
 
     /** 
-     * mirrors a picture around a mirror placed horizontally at the middle of the height of the picture from bottom to top
+     * mirrors a picture around a mirror placed horizontally at the middle of the height 
+     * of the picture from bottom to top
      */
     public void mirrorHorizontalBottomTop()
     {
@@ -338,9 +340,7 @@ public class Picture extends SimplePicture
         }
     }
 
-    /** copy from the passed fromPic to the
-     * specified startRow and startCol in the
-     * current picture
+    /** copy from the passed fromPic to the specified startRow and startCol in the current picture
      * @param fromPic the picture to copy from
      * @param startRow the start row to copy to
      * @param startCol the start col to copy to
@@ -367,6 +367,22 @@ public class Picture extends SimplePicture
                 toPixel.setColor(fromPixel.getColor());
             }
         }   
+    }
+
+    public void cropAndCopy( Picture sourcePicture, int startSourceRow, int endSourceRow, 
+    int startSourceCol, int endSourceCol, int startDestRow, int startDestCol)
+    {
+        Pixel fromPixel = null;
+        Pixel toPixel = null;
+        Pixel[][] toPixels = this.getPixels2D();
+        Pixel[][] fromPixels = sourcePicture.getPixels2D();
+        for(; startSourceRow < endSourceRow; startSourceRow++, startDestRow++){
+            for(; startSourceCol < endSourceCol; startSourceCol++, startDestCol++){
+                fromPixel = fromPixels[startSourceRow][startSourceCol];
+                toPixel = toPixels[startDestRow][startDestCol];
+                toPixel.setColor(fromPixel.getColor());
+            }
+        }
     }
 
     /** Method to create a collage of several pictures */
@@ -410,12 +426,6 @@ public class Picture extends SimplePicture
                     leftPixel.setColor(Color.WHITE);
             }
         }
-    }
-
-    public void cropAndCopy( Picture sourcePicture, int startSourceRow, int endSourceRow, int startSourceCol, int endSourceCol,
-        int startDestRow, int startDestCol)
-    {
-        
     }
 
     /* Main method for testing - each class in Java can have a main 

@@ -147,7 +147,8 @@ public class PictureTester
     Picture seagull = new Picture("seagull.jpg");
     Picture beach = new Picture("beach.jpg");
     seagull.explore();
-    //seagull.cropAndCopy();
+    seagull.cropAndCopy(beach, 0, beach.getWidth(), 0, beach.getHeight(), seagull.getWidth(),
+                        seagull.getHeight());
     seagull.explore();
   }
   
