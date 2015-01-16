@@ -369,21 +369,21 @@ public class Picture extends SimplePicture
         }   
     }
 
-    public void cropAndCopy( Picture sourcePicture, int startSourceRow, int endSourceRow, 
-    int startSourceCol, int endSourceCol, int startDestRow, int startDestCol)
-    {
-        Pixel fromPixel = null;
-        Pixel toPixel = null;
-        Pixel[][] toPixels = this.getPixels2D();
-        Pixel[][] fromPixels = sourcePicture.getPixels2D();
-        for(; startSourceRow < endSourceRow; startSourceRow++, startDestRow++){
-            for(; startSourceCol < endSourceCol; startSourceCol++, startDestCol++){
-                fromPixel = fromPixels[startSourceRow][startSourceCol];
-                toPixel = toPixels[startDestRow][startDestCol];
-                toPixel.setColor(fromPixel.getColor());
-            }
-        }
-    }
+    //public void cropAndCopy( Picture sourcePicture, int startSourceRow, int endSourceRow, 
+    //int startSourceCol, int endSourceCol, int startDestRow, int startDestCol)
+    //{
+    //    Pixel fromPixel = null;
+    //    Pixel toPixel = null;
+    //    Pixel[][] toPixels = this.getPixels2D();
+    //    Pixel[][] fromPixels = sourcePicture.getPixels2D();
+    //    for(; startSourceRow < endSourceRow; startSourceRow++, startDestRow++){
+    //        for(; startSourceCol < endSourceCol; startSourceCol++, startDestCol++){
+    //            fromPixel = fromPixels[startSourceRow][startSourceCol];
+    //            toPixel = toPixels[startDestRow][startDestCol];
+    //            toPixel.setColor(fromPixel.getColor());
+    //        }
+    //    }
+    // }
 
     /** Method to create a collage of several pictures */
     public void createCollage()

@@ -141,16 +141,16 @@ public class PictureTester
     swan.explore();
   }
   
-  /** Method to test cropAndCopy */
-  public static void testCropAndCopy()
-  {
-    Picture seagull = new Picture("seagull.jpg");
-    Picture beach = new Picture("beach.jpg");
-    seagull.explore();
-    seagull.cropAndCopy(beach, 0, beach.getWidth(), 0, beach.getHeight(), seagull.getWidth(),
-                        seagull.getHeight());
-    seagull.explore();
-  }
+  ///** Method to test cropAndCopy */
+  //public static void testCropAndCopy()
+  //{
+  //   Picture seagull = new Picture("seagull.jpg");
+  //  Picture beach = new Picture("beach.jpg");
+  //  seagull.explore();
+  //  seagull.cropAndCopy(beach, 0, beach.getWidth(), 0, beach.getHeight(), seagull.getWidth(),
+  //                      seagull.getHeight());
+  //  seagull.explore();
+  //}
   
   /** Main method for testing.  Every class can have a main
     * method in Java */
