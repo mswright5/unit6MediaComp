@@ -1,40 +1,53 @@
 
-
 /**
- * Write a description of class CollageLab here.
+ * Creates a collage
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
 public class CollageLab
 {
-    /** description of instance variable x (add comment for each instance variable) */
-    private int x;
-
     /**
-     * Default constructor for objects of class CollageLab
-     */
-    public CollageLab()
-    {
-        // initialise instance variables
-        x = 0;
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
-     *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
+     * the main method that runs the entire collage
+     * 
+     * @pre        all methods
      * @post    postconditions for the method
      *            (what the method guarantees upon completion)
      * @param    y    description of parameter y
      * @return    description of the return value
      */
-    public int sampleMethod(int y)
+    public static void main(String[] args)
     {
-        // put your code here
-        return x+y;
+        Picture original = new Picture("blueMotorcycle.jpg");
+        Picture finalPic = new Picture(960,1920);
+        finalPic.copy(original,0,0);
+        
+        Picture change1 = new Picture("blueMotorcycle.jpg");
+        change1.zeroBlue();
+        change1.negate();
+        finalPic.copy(change1,480,0);
+        
+        Picture change2 = new Picture("blueMotorcycle.jpg");
+        change2.zeroRed();
+        change2.negate();
+        finalPic.copy(change2,0,640);
+        
+        Picture change3 = new Picture("blueMotorcycle.jpg");
+        change3.zeroGreen();
+        change3.negate();
+        finalPic.copy(change3,480,640);
+        
+        Picture change4 = new Picture("blueMotorcycle.jpg");
+        change4.mirrorHorizontal();
+        change4.grayscale();
+        finalPic.copy(change4,0,1280);
+        
+        Picture change5 = new Picture("blueMotorcycle.jpg");
+        change5.mirrorVertical();
+        change5.negate();
+        finalPic.copy(change5,480,1280);
+        
+        finalPic.explore();
+        finalPic.write("H:\\GitHub\\unit6MediaComp\\PictureLab\\classes\\MyCollage.jpg");
     }
-
 }

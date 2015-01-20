@@ -97,6 +97,32 @@ public class Picture extends SimplePicture
             }
         }
     }
+    
+    /** Method to set the red to 0 */
+    public void zeroRed()
+    {
+        Pixel[][] pixels = this.getPixels2D();
+        for (Pixel[] rowArray : pixels)
+        {
+            for (Pixel pixelObj : rowArray)
+            {
+                pixelObj.setRed(0);
+            }
+        }
+    }
+    
+    /** Method to set the green to 0 */
+    public void zeroGreen()
+    {
+        Pixel[][] pixels = this.getPixels2D();
+        for (Pixel[] rowArray : pixels)
+        {
+            for (Pixel pixelObj : rowArray)
+            {
+                pixelObj.setGreen(0);
+            }
+        }
+    }
 
     /** Method to set red and green to 0 */
     public void keepOnlyBlue()
@@ -112,7 +138,7 @@ public class Picture extends SimplePicture
         }
     }
 
-    /** Method to set red and green to 0 */
+    /** Method to set inverse colors */
     public void negate()
     {
         Pixel[][] pixels = this.getPixels2D();
@@ -150,6 +176,20 @@ public class Picture extends SimplePicture
             for (Pixel pixelObj : rowArray)
             {
                 pixelObj.setRed(pixelObj.getRed()*4);
+            }
+        }
+    }
+    
+    public void increaseIntensity()
+    {
+        Pixel[][] pixels = this.getPixels2D();
+        for (Pixel[] rowArray : pixels)
+        {
+            for (Pixel pixelObj : rowArray)
+            {
+                pixelObj.setRed(pixelObj.getRed()*2);
+                pixelObj.setBlue(pixelObj.getBlue()*2);
+                pixelObj.setGreen(pixelObj.getGreen()*2);
             }
         }
     }
