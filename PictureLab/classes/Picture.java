@@ -97,7 +97,7 @@ public class Picture extends SimplePicture
             }
         }
     }
-    
+
     /** Method to set the red to 0 */
     public void zeroRed()
     {
@@ -110,7 +110,7 @@ public class Picture extends SimplePicture
             }
         }
     }
-    
+
     /** Method to set the green to 0 */
     public void zeroGreen()
     {
@@ -168,6 +168,32 @@ public class Picture extends SimplePicture
         }
     }
 
+    public void sepia()
+    {
+        //DOES NOT WORK
+        this.grayscale();
+        Pixel[][] pixels = this.getPixels2D();
+        for (Pixel[] rowArray : pixels)
+        {
+            for (Pixel pixelObj : rowArray)
+            {
+                if (pixelObj.getRed() <= 60){
+                    pixelObj.setBlue((int)(pixelObj.getBlue()*.9));
+                    pixelObj.setRed((int)(pixelObj.getRed()*.9));
+                    pixelObj.setGreen((int)(pixelObj.getGreen()*.9));
+                }
+
+                else if (pixelObj.getRed() <= 190){
+                    pixelObj.setBlue((int)(pixelObj.getBlue()*.8));
+                }
+
+                else{
+                    pixelObj.setBlue((int)(pixelObj.getBlue()*.9));
+                }
+            }
+        }
+    }
+
     public void fixUnderwater()
     {
         Pixel[][] pixels = this.getPixels2D();
@@ -179,7 +205,7 @@ public class Picture extends SimplePicture
             }
         }
     }
-    
+
     public void increaseIntensity()
     {
         Pixel[][] pixels = this.getPixels2D();

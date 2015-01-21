@@ -2,19 +2,16 @@
 /**
  * Creates a collage
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Matt Wright
+ * @version January 
  */
 public class CollageLab
 {
     /**
      * the main method that runs the entire collage
      * 
-     * @pre        all methods
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
+     * @pre     all methods are completed
+     * @post    Collage is generated into a jpg file and is displayed within the program
      */
     public static void main(String[] args)
     {
