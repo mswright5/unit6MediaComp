@@ -62,15 +62,15 @@ public class PictureTester
         beach.explore();
     }
 
-    /**Method to test sepia */
-    public static void testSepia()
-    {
-        //does not work
-        Picture beach = new Picture("temple.jpg");
-        beach.explore();
-        beach.sepia();
-        beach.explore();
-    }
+    ///**Method to test sepia */
+    //public static void testSepia()
+    //{
+    //    //does not work
+    //    Picture beach = new Picture("temple.jpg");
+    //    beach.explore();
+    //    beach.sepia();
+    //    beach.explore();
+    //}
 
     /** Method to test fixUnderwater */
     public static void testFixUnderwater()
@@ -189,7 +189,7 @@ public class PictureTester
         // to run
         testZeroRed();
         testZeroGreen();
-        testSepia();
+        //testSepia();
         //testZeroBlue();
         //testKeepOnlyBlue();
         //testKeepOnlyRed();
